@@ -2,6 +2,7 @@ from django.urls import reverse
 from django.contrib import messages
 from wagtail.core.models import Page
 from django.shortcuts import redirect, render
+from django.db.models import Q
 from django_comments_xtd.models import XtdComment
 from django.utils.translation import ugettext as _
 from wagtail_comments_xtd.utils import cleaned_tree
@@ -53,7 +54,7 @@ def update(request, page_pk, comment_pk, action):
     # If we perform an action on just the parent, django_commnents_xtd's tree_from_queryset
     # query fails to correctly return comments suitable for output.
     # https://github.com/danirus/django-comments-xtd/blob/323cb394147120a5cacb9771ab527783b232132a/django_comments_xtd/models.py#L121
-    comments = XtdComment.objects.filter(parent_id=comment_pk)
+    comments = XtdComment.objects.filter(Q(pk=comment_pk) | Q(parent_id=comment_pk))
 
     if action == 'unpublish':
         for comment in comments:
