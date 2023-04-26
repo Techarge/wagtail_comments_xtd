@@ -1,7 +1,7 @@
 from django.urls import reverse, path
 from wagtail_comments_xtd import urls
 from wagtail.core import hooks
-from django.conf.urls import include, url
+from django.conf.urls import include
 from wagtail.admin.menu import MenuItem
 from django.utils.translation import gettext_lazy as _
 
