@@ -1,4 +1,4 @@
-from django.urls import reverse
+from django.urls import reverse, path
 from wagtail_comments_xtd import urls
 from wagtail.core import hooks
 from django.conf.urls import include, url
@@ -9,7 +9,7 @@ from django.utils.translation import gettext_lazy as _
 @hooks.register('register_admin_urls')
 def register_admin_urls():
     return [
-        url(r'^comments/', include(urls)),
+        path("comments/", include(urls)),
     ]
 
 
