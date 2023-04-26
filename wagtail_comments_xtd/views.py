@@ -4,7 +4,7 @@ from wagtail.core.models import Page
 from django.shortcuts import redirect, render
 from django.db.models import Q
 from django_comments_xtd.models import XtdComment
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 from wagtail_comments_xtd.utils import cleaned_tree
 
 
