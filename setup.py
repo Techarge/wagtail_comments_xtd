@@ -6,7 +6,7 @@ setup(
     author='André Karlsson',
     license='GPLv3',
     author_email='andre.karlsson@protractus.se',
-    version='0.2.9',
+    version='0.3.0',
     url='https://github.com/joyider/wagtail_comments_xtd',
     classifiers=[
         "Environment :: Web Environment",
@@ -21,9 +21,9 @@ setup(
     include_package_data=True,
     python_requires='>=3',
     install_requires=[
-        "wagtail>1.7",
-        "Django>=1.8.16",
+        "wagtail>2.16",
+        "Django>=3.2",
         "wagtailfontawesome>=1.0.2",
-        "django-comments-xtd>=1.6.3"
+        "django-comments-xtd>=2.9.9"
     ],
 )
