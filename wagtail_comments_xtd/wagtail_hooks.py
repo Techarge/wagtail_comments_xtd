@@ -1,9 +1,13 @@
 from django.urls import reverse, path
 from wagtail_comments_xtd import urls
-from wagtail.core import hooks
 from django.conf.urls import include
 from wagtail.admin.menu import MenuItem
 from django.utils.translation import gettext_lazy as _
+
+try:
+    from wagtail import hooks
+except ImportError:  # fallback for Wagtail <4.2
+    from wagtail.core import hooks
 
 
 @hooks.register('register_admin_urls')

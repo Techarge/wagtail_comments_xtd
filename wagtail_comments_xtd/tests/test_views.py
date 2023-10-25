@@ -5,10 +5,16 @@ from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.sites.models import Site
 
-from wagtail.core.models import Page, Site as WagtailSite
 from wagtail.tests.utils import WagtailTestUtils
 
 from django_comments_xtd.models import XtdComment
+
+
+try:
+    from wagtail.models import Page, Site as WagtailSite
+except ImportError:  # fallback for Wagtail <4.2
+    from wagtail.core.models import Page, Site as WagtailSite
+
 
 
 class TestUpdate(TestCase, WagtailTestUtils):
